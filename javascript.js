@@ -4,7 +4,7 @@ function add(a, b) {
     return a + b;
 }
 
-function substract(a, b) {
+function subtract(a, b) {
     return a - b;
 }
 
@@ -16,4 +16,27 @@ function divide(a, b) {
     return a / b;
 }
 
-console.log(divide(8, 2))
+//calc operation variables
+let num1 = null;
+let num2 = null;
+let operator = null;
+
+//operate function
+
+function operate() {
+    
+    switch(operator) {
+        case '+':
+            return add(num1, num2);
+        case '-':
+            return subtract(num1, num2);
+        case '*':
+            return multiply(num1, num2);
+        case '/':
+            return divide(num1, num2);
+    }
+}
+operator = '';
+num1 = 6;
+num2 = 3;
+console.log(operate())
