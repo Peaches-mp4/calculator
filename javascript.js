@@ -20,7 +20,8 @@ function divide(a, b) {
 let num1 = null;
 let num2 = null;
 let operator = null;
-
+let result = null;
+let displayValue = null;
 //operate function
 
 function operate() {
@@ -36,18 +37,35 @@ function operate() {
             return divide(num1, num2);
     }
 }
-// operator = '';
-// num1 = 6;
-// num2 = 3;
-// console.log(operate())
 
-//functions to populate the display
-const display = document.getElementById('result');
-const showButtons = Array.from(document.querySelectorAll('.show'));
-showButtons.forEach(button => button.addEventListener('click', displayNumbers)
-);
+//populate the display
 
+const display = document.getElementById('display-num');
+const visibleButtons = Array.from(document.querySelectorAll('.show'));
+visibleButtons.forEach(button => button.addEventListener('click', displayNumbers));
 
 function displayNumbers(e) {
     display.textContent = e.target.textContent;
+    displayValue = e.target.textContent;
+}
+
+//make the calc work
+const numButtons = Array.from(document.querySelectorAll('.num'));
+numButtons.forEach(button => button.addEventListener('click', calculationTime));
+
+const opButtons = Array.from(document.querySelectorAll('.op'));
+opButtons.forEach(button => button.addEventListener('click', (e) => operator = e.target.textContent));
+
+const equals = document.getElementById('equals');
+equals.addEventListener('click', () => display.textContent = result)
+
+function calculationTime() {
+    if(num1 == null) {
+        num1 = +displayValue;
+    } else if(num2 == null && num1 !== null) {
+        num2 = +displayValue;
+        result = operate();
+        console.log(result)
+    }
+
 }
