@@ -36,7 +36,18 @@ function operate() {
             return divide(num1, num2);
     }
 }
-operator = '';
-num1 = 6;
-num2 = 3;
-console.log(operate())
+// operator = '';
+// num1 = 6;
+// num2 = 3;
+// console.log(operate())
+
+//functions to populate the display
+const display = document.getElementById('result');
+const showButtons = Array.from(document.querySelectorAll('.show'));
+showButtons.forEach(button => button.addEventListener('click', displayNumbers)
+);
+
+
+function displayNumbers(e) {
+    display.textContent = e.target.textContent;
+}
