@@ -57,7 +57,11 @@ const opButtons = Array.from(document.querySelectorAll('.op'));
 opButtons.forEach(button => button.addEventListener('click', (e) => operator = e.target.textContent));
 
 const equals = document.getElementById('equals');
-equals.addEventListener('click', () => display.textContent = result)
+equals.addEventListener('click', () => display.textContent = result);
+
+const clear = document.getElementById('clear');
+clear.addEventListener('click', clearFunction);
+  
 
 function calculationTime() {
     if(num1 == null) {
@@ -67,5 +71,13 @@ function calculationTime() {
         result = operate();
         console.log(result)
     }
+}
 
+function clearFunction() {
+    num1 = null;
+    num2 = null;
+    operator = null;
+    result = null;
+    display.textContent = 0;
+    // console.log(num1, num2, operator, result)
 }
