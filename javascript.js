@@ -17,11 +17,13 @@ function divide(a, b) {
 }
 
 //calc operation variables
+
 let num1 = null;
 let num2 = null;
 let operator = null;
 let result = null;
 let displayValue = null;
+
 //operate function
 
 function operate() {
@@ -58,11 +60,10 @@ function displayNumbers(e) {
 }
 
 //make the calc work
+
 const numButtons = Array.from(document.querySelectorAll('.num'));
 
-// numButtons.forEach(button => button.addEventListener('click', calculationTime));
-
-const opButtons = Array.from(document.querySelectorAll('.op'));
+const opButtons = Array.from(document.querySelectorAll('.op.show'));
 opButtons.forEach(button => button.addEventListener('click', setOperator));
 
 const equals = document.getElementById('equals');
@@ -73,20 +74,25 @@ clear.addEventListener('click', clearFunction);
 
 function setOperator(e) {
     display.textContent = e.target.textContent;
-    if(e.target.textContent !== '=') {
+
+    if(operator !== null) {
+        num2 = +displayValue;
+        result = operate(operator);
+        num1 = result;
+        operator = e.target.textContent;
+        displayValue = `${result}${operator}`;
+    } else {
         num1 = +displayValue;
         operator = e.target.textContent;
     }
 }
 
 function getResult() {
-    console.log(num1, displayValue, num2);
-
     num2 = +displayValue;
     result = operate(operator);
     display.textContent = result;
+    displayValue = result;
 }
-
 
 function clearFunction() {
     num1 = null;
@@ -95,16 +101,3 @@ function clearFunction() {
     result = null;
     display.textContent = "";
 }
-
-
-/* 
- ne rade:
-
-1. jednocifreni brojevi sabiranje i oduzimanje
-2. sabiranje i oduzimanje sa jednocifrenim brojevima
-
-rade:
-
-sve funkcije sa visecifrenim brojevima
-
-*/ 
