@@ -45,33 +45,53 @@ const visibleButtons = Array.from(document.querySelectorAll('.show'));
 visibleButtons.forEach(button => button.addEventListener('click', displayNumbers));
 
 function displayNumbers(e) {
-    display.textContent = e.target.textContent;
-    displayValue = e.target.textContent;
+    const check = /[0+\-*\/]/
+    if(e.target.textContent.match(check) || display.textContent.match(check)) {
+        display.textContent = e.target.textContent;
+    } else {
+        display.textContent += e.target.textContent;
+        displayValue = display.textContent;
+    }
 }
 
 //make the calc work
 const numButtons = Array.from(document.querySelectorAll('.num'));
-numButtons.forEach(button => button.addEventListener('click', calculationTime));
+
+// numButtons.forEach(button => button.addEventListener('click', calculationTime));
 
 const opButtons = Array.from(document.querySelectorAll('.op'));
-opButtons.forEach(button => button.addEventListener('click', (e) => operator = e.target.textContent));
+opButtons.forEach(button => button.addEventListener('click', setOperator));
 
 const equals = document.getElementById('equals');
-equals.addEventListener('click', () => display.textContent = result);
+equals.addEventListener('click', getResult);
 
 const clear = document.getElementById('clear');
 clear.addEventListener('click', clearFunction);
-  
 
-function calculationTime() {
-    if(num1 == null) {
+function setOperator(e) {
+    display.textContent = e.target.textContent;
+    if(e.target.textContent !== '=') {
         num1 = +displayValue;
-    } else if(num2 == null && num1 !== null) {
-        num2 = +displayValue;
-        result = operate();
-        console.log(result)
+        operator = e.target.textContent;
     }
 }
+
+function getResult() {
+    num2 = +displayValue;
+    result = operate(operator)
+    display.textContent = result;
+    console.log(num1, operator, num2, result);
+}
+
+
+// function calculationTime() {
+//     if(num1 == null) {
+//         num1 = +displayValue;
+//     } else if(num2 == null && num1 !== null) {
+//         num2 = +displayValue;
+//         result = operate();
+//     }
+// }
 
 function clearFunction() {
     num1 = null;
@@ -79,5 +99,16 @@ function clearFunction() {
     operator = null;
     result = null;
     display.textContent = 0;
-    // console.log(num1, num2, operator, result)
 }
+
+
+
+/* 
+
+
+k
+i krece niz brojeva koji ce biti num2, koji se isto cnct dok user ne klikne = ili sledeci operand;
+ako klikne jednako, zavrsava se drugi num i storuje, display rezultat
+ako klikne drugi operand onda se isto rezultat racuna ali se ne display vec se storuje i taj rezultat postaje onda num1 a ono sto user kuca posle novog operanda postaje num2
+
+*/ 
