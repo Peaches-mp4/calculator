@@ -45,8 +45,9 @@ const visibleButtons = Array.from(document.querySelectorAll('.show'));
 visibleButtons.forEach(button => button.addEventListener('click', displayNumbers));
 
 function displayNumbers(e) {
-    const check = /[0+\-*\/]/
-    if(e.target.textContent.match(check) || display.textContent.match(check)) {
+    const check = /[+\-*\/]/
+    const check1 = /[0+\-*\/]/
+    if(e.target.textContent.match(check) || display.textContent.match(check1)) {
         display.textContent = e.target.textContent;
     } else {
         display.textContent += e.target.textContent;
