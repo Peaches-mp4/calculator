@@ -46,8 +46,7 @@ visibleButtons.forEach(button => button.addEventListener('click', displayNumbers
 
 function displayNumbers(e) {
     const check = /[+\-*\/]/
-    const check1 = /[0+\-*\/]/
-    if(e.target.textContent.match(check) || display.textContent.match(check1)) {
+    if(e.target.textContent.match(check) || display.textContent.match(check)) {
         display.textContent = e.target.textContent;
     } else {
         display.textContent += e.target.textContent;
@@ -99,17 +98,19 @@ function clearFunction() {
     num2 = null;
     operator = null;
     result = null;
-    display.textContent = 0;
+    display.textContent = "";
 }
 
 
 
 /* 
+ ne rade:
 
+1. jednocifreni brojevi sabiranje i oduzimanje
+2. sabiranje i oduzimanje sa jednocifrenim brojevima
 
-k
-i krece niz brojeva koji ce biti num2, koji se isto cnct dok user ne klikne = ili sledeci operand;
-ako klikne jednako, zavrsava se drugi num i storuje, display rezultat
-ako klikne drugi operand onda se isto rezultat racuna ali se ne display vec se storuje i taj rezultat postaje onda num1 a ono sto user kuca posle novog operanda postaje num2
+rade:
+
+sve funkcije sa visecifrenim brojevima
 
 */ 
