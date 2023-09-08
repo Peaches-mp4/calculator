@@ -48,6 +48,9 @@ function displayNumbers(e) {
     const check = /[+\-*\/]/
     if(e.target.textContent.match(check) || display.textContent.match(check)) {
         display.textContent = e.target.textContent;
+        if(!display.textContent.match(check)) {
+            displayValue = display.textContent;
+        }
     } else {
         display.textContent += e.target.textContent;
         displayValue = display.textContent;
@@ -77,21 +80,13 @@ function setOperator(e) {
 }
 
 function getResult() {
+    console.log(num1, displayValue, num2);
+
     num2 = +displayValue;
-    result = operate(operator)
+    result = operate(operator);
     display.textContent = result;
-    console.log(num1, operator, num2, result);
 }
 
-
-// function calculationTime() {
-//     if(num1 == null) {
-//         num1 = +displayValue;
-//     } else if(num2 == null && num1 !== null) {
-//         num2 = +displayValue;
-//         result = operate();
-//     }
-// }
 
 function clearFunction() {
     num1 = null;
@@ -100,7 +95,6 @@ function clearFunction() {
     result = null;
     display.textContent = "";
 }
-
 
 
 /* 
