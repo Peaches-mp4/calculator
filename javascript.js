@@ -36,7 +36,11 @@ function operate() {
         case '*':
             return multiply(num1, num2);
         case '/':
-            return divide(num1, num2);
+            if(num2 === 0) {
+                return "Nice try boiadeiro"
+            } else {
+                return divide(num1, num2);
+            }
     }
 }
 
@@ -47,15 +51,23 @@ const visibleButtons = Array.from(document.querySelectorAll('.show'));
 visibleButtons.forEach(button => button.addEventListener('click', displayNumbers));
 
 function displayNumbers(e) {
+
     const check = /[+\-*\/]/
+
     if(e.target.textContent.match(check) || display.textContent.match(check) || display.textContent == result) {
         display.textContent = e.target.textContent;
+        if(!display.textContent.match(/\./)) {
+        document.getElementById('dot').disabled = false;
+        }
         if(!display.textContent.match(check)) {
             displayValue = display.textContent;
         }
     } else {
         display.textContent += e.target.textContent;
         displayValue = display.textContent;
+    }
+    if(display.textContent.match(/\./)) {
+        document.getElementById('dot').disabled = true;
     }
 }
 
@@ -82,17 +94,18 @@ function setOperator(e) {
         }
         num1 = result;
         operator = e.target.textContent;
-        console.table(num1, operator, num2, result, displayValue)
     } else {
         num1 = +displayValue;
         operator = e.target.textContent;
-        console.table(num1, operator, num2, result, displayValue)
     }
 }
 
 function getResult() {
     num2 = +displayValue;
-    result = +(operate(operator)).toFixed(2);
+    result = (operate(operator));
+    if(typeof result === 'number') {
+        result = +result.toFixed(2);
+    }
     display.textContent = result;
     displayValue = result;
     console.table(num1, operator, num2, result, displayValue);
