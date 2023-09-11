@@ -105,7 +105,9 @@ function getResult() {
     if(typeof result === 'number') {
         result = +result.toFixed(2);
     }
-    display.textContent = result;
+    if(num1 !== null){
+        display.textContent = result;
+    }
     console.table(num1, operator, num2, result, displayValue);
 }
 
