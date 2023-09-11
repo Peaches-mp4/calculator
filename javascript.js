@@ -93,11 +93,10 @@ function setOperator(e) {
             console.log('hi')
         }
         num1 = result;
-        operator = e.target.textContent;
     } else {
         num1 = +displayValue;
-        operator = e.target.textContent;
     }
+    operator = e.target.textContent;
 }
 
 function getResult() {
@@ -107,7 +106,6 @@ function getResult() {
         result = +result.toFixed(2);
     }
     display.textContent = result;
-    displayValue = result;
     console.table(num1, operator, num2, result, displayValue);
 }
 
