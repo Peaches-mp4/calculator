@@ -23,6 +23,7 @@ let num2 = null;
 let operator = null;
 let result = null;
 let displayValue = null;
+let lastClicked = null;
 
 //operate function
 
@@ -74,9 +75,11 @@ function displayNumbers(e) {
 //make the calc work
 
 const numButtons = Array.from(document.querySelectorAll('.num'));
+numButtons.forEach(button => button.addEventListener('click', () => lastClicked = 'number'));
 
 const opButtons = Array.from(document.querySelectorAll('.op.show'));
 opButtons.forEach(button => button.addEventListener('click', setOperator));
+opButtons.forEach(button => button.addEventListener('click', () => lastClicked = 'operator'));
 
 const equals = document.getElementById('equals');
 equals.addEventListener('click', getResult);
@@ -90,7 +93,6 @@ function setOperator(e) {
     if(operator !== null) {
         if(displayValue != result){
             getResult();
-            console.log('hi')
         }
         num1 = result;
     } else {
@@ -100,7 +102,9 @@ function setOperator(e) {
 }
 
 function getResult() {
-    num2 = +displayValue;
+    if(lastClicked == 'number'){
+        num2 = +displayValue;
+    }
     result = (operate(operator));
     if(typeof result === 'number') {
         result = +result.toFixed(2);
