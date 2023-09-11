@@ -1,7 +1,7 @@
 //basic math functions
 
 function add(a, b) {
-    return a + b;
+    return (a + b);
 }
 
 function subtract(a, b) {
@@ -92,7 +92,7 @@ function setOperator(e) {
 
 function getResult() {
     num2 = +displayValue;
-    result = operate(operator);
+    result = +(operate(operator)).toFixed(2);
     display.textContent = result;
     displayValue = result;
     console.table(num1, operator, num2, result, displayValue);
