@@ -48,7 +48,7 @@ visibleButtons.forEach(button => button.addEventListener('click', displayNumbers
 
 function displayNumbers(e) {
     const check = /[+\-*\/]/
-    if(e.target.textContent.match(check) || display.textContent.match(check)) {
+    if(e.target.textContent.match(check) || display.textContent.match(check) || display.textContent == result) {
         display.textContent = e.target.textContent;
         if(!display.textContent.match(check)) {
             displayValue = display.textContent;
@@ -76,19 +76,17 @@ function setOperator(e) {
     display.textContent = e.target.textContent;
 
     if(operator !== null) {
-        
-        num2 = +displayValue;
-        result = operate(operator);
-        displayValue = result;
+        if(displayValue != result){
+            getResult();
+            console.log('hi')
+        }
         num1 = result;
         operator = e.target.textContent;
-       
-        //displayValue = `${result} ${operator}`;
+        console.table(num1, operator, num2, result, displayValue)
     } else {
         num1 = +displayValue;
         operator = e.target.textContent;
         console.table(num1, operator, num2, result, displayValue)
-        console.log('operator == null')
     }
 }
 
@@ -97,7 +95,7 @@ function getResult() {
     result = operate(operator);
     display.textContent = result;
     displayValue = result;
-    console.log(num1, operator, num2, result, displayValue)
+    console.table(num1, operator, num2, result, displayValue);
 }
 
 function clearFunction() {
@@ -107,6 +105,4 @@ function clearFunction() {
     result = null;
     display.textContent = "";
 }
-
-//ne pokazuje rezultat + operator tokom chainovanja pre nego sto nastavi 
 
