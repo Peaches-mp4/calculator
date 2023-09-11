@@ -76,14 +76,19 @@ function setOperator(e) {
     display.textContent = e.target.textContent;
 
     if(operator !== null) {
+        
         num2 = +displayValue;
         result = operate(operator);
+        displayValue = result;
         num1 = result;
         operator = e.target.textContent;
-        displayValue = `${result}${operator}`;
+       
+        //displayValue = `${result} ${operator}`;
     } else {
         num1 = +displayValue;
         operator = e.target.textContent;
+        console.table(num1, operator, num2, result, displayValue)
+        console.log('operator == null')
     }
 }
 
@@ -92,6 +97,7 @@ function getResult() {
     result = operate(operator);
     display.textContent = result;
     displayValue = result;
+    console.log(num1, operator, num2, result, displayValue)
 }
 
 function clearFunction() {
@@ -101,3 +107,6 @@ function clearFunction() {
     result = null;
     display.textContent = "";
 }
+
+//ne pokazuje rezultat + operator tokom chainovanja pre nego sto nastavi 
+
