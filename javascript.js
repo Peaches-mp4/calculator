@@ -78,9 +78,18 @@ const allButtons = Array.from(document.querySelectorAll('.btn'));
 allButtons.forEach(button => button.addEventListener('click', playSound))
 
 function playSound() {
-    audio = document.querySelector('audio');
+    audio = document.getElementById('click');
     audio.currentTime = 0.4;
     audio.volume = 0.2;
+    audio.play();
+}
+
+window.addEventListener('load', playMusic);
+
+function playMusic() {
+    audio = document.getElementById('soundtrack');
+    audio.currentTime = 0.0;
+    audio.volume = 0.10;
     audio.play();
 }
 
