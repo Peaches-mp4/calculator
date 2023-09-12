@@ -1,3 +1,9 @@
+:root {
+    --orange: rgba(194, 107, 57, 0.87);
+    --purple: rgba(168, 102, 185, 0.89);
+    --pink: rgba(190, 77, 124, 0.89);
+}
+
 html {
     background: url(/Images/pexels-aleksandar-pasaric-2067057.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -5,13 +11,13 @@ html {
     -o-background-size: cover;
     background-size: cover;
     font-family: 'Caveat', cursive;
-    /* font-family: 'Source Code Pro', monospace; */
 }
 
 #calc-body {
-    border: 3px solid black;
+    border: 8px solid black;
     width: fit-content;
-    background-color: rgba(7, 6, 87, 0.671);
+    /* background-color: rgba(7, 6, 87, 0.788); */
+    background-color: rgba(36, 36, 36, 0.801);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,7 +32,7 @@ html {
 }
 
 #display {
-    background-color: rgba(177, 156, 179, 0.945);
+    background-color: rgba(185, 183, 185, 0.945);
     width: 100%;
     height: 100px;
     display: flex;
@@ -55,33 +61,31 @@ html {
 .btn {
     height: 75px;
     width: 75px;
-    background-color: rgba(168, 102, 185, 0.89);
+    background-color: var(--purple);
     color: black;
     font-size: 35px;
     font-weight: 600;
     border: 2px solid black;
     font-family: 'Caveat', cursive;
-    /* font-family: 'Source Code Pro', monospace; */
 } 
-.op, .colored{
-    background-color: rgba(150, 50, 92, 0.89);
+.op {
+    background-color: var(--pink);
 }
 
 .double  {
     width: 150px;
 }
 
-/* .colored {
-    background-color: rgba(177, 156, 179, 0.856);
-} */
-
-
-.btn:hover {
-    filter: brightness(80%);
-    background-color: rgba(230, 119, 55, 0.945);
-
+.colored {
+    background-color: var(--orange);
 }
 
 .btn.huge {
     width: 300px;
+    background-color: var(--orange);
+}
+
+.btn:hover {
+    filter: brightness(80%);
+    /* background-color: rgba(231, 163, 61, 0.945); */
 }

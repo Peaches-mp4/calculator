@@ -72,6 +72,18 @@ function displayNumbers(e) {
     }
 }
 
+//add sound effects
+
+const allButtons = Array.from(document.querySelectorAll('.btn'));
+allButtons.forEach(button => button.addEventListener('click', playSound))
+
+function playSound() {
+    audio = document.querySelector('audio');
+    audio.currentTime = 0.4;
+    audio.volume = 0.2;
+    audio.play();
+}
+
 //make the calc work
 
 const numButtons = Array.from(document.querySelectorAll('.num'));
