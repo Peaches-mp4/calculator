@@ -87,6 +87,14 @@ equals.addEventListener('click', getResult);
 const clear = document.getElementById('clear');
 clear.addEventListener('click', clearFunction);
 
+const del = document.getElementById('del');
+del.addEventListener('click', delNumber);
+
+function delNumber() {
+   display.textContent = display.textContent.slice(0, -1);
+   displayValue = +display.textContent;
+}
+
 function setOperator(e) {
     display.textContent = e.target.textContent;
 

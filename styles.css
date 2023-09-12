@@ -26,7 +26,7 @@ html {
 }
 
 #display {
-    background-color: rgba(141, 141, 141, 0.959);
+    background-color: rgba(177, 156, 179, 0.945);
     width: 100%;
     height: 100px;
     display: flex;
@@ -43,8 +43,8 @@ html {
 }
 
 #display, #btn-container {
-    max-width: 320px;
-    min-width: 320px;
+    max-width: 300px;
+    min-width: 300px;
 }
 
 #btn-container {
@@ -52,11 +52,9 @@ html {
     flex-wrap: wrap;
 }
 
-
-
 .btn {
-    height: 80px;
-    width: 80px;
+    height: 75px;
+    width: 75px;
     background-color: rgba(168, 102, 185, 0.89);
     color: black;
     font-size: 35px;
@@ -65,13 +63,18 @@ html {
     font-family: 'Caveat', cursive;
     /* font-family: 'Source Code Pro', monospace; */
 } 
-.op {
+.op, .colored{
     background-color: rgba(150, 50, 92, 0.89);
 }
 
-.double {
-    width: 160px;
+.double  {
+    width: 150px;
 }
+
+/* .colored {
+    background-color: rgba(177, 156, 179, 0.856);
+} */
+
 
 .btn:hover {
     filter: brightness(80%);
@@ -79,5 +82,6 @@ html {
 
 }
 
-.btn.double:hover {
+.btn.huge {
+    width: 300px;
 }
