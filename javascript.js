@@ -38,7 +38,7 @@ function operate() {
             return multiply(num1, num2);
         case '/':
             if(num2 === 0) {
-                return "Nice try boiadeiro"
+                return "Nice try"
             } else {
                 return divide(num1, num2);
             }
@@ -123,3 +123,7 @@ function clearFunction() {
     display.textContent = "";
 }
 
+//OPTIONAL
+// add backspace button
+// add keyboard support
+// make it look nice

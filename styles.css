@@ -1,23 +1,44 @@
-
-
-body {
-    background-color: rgb(125, 121, 121);
+html {
+    background: url(/Images/pexels-aleksandar-pasaric-2067057.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Caveat', cursive;
+    /* font-family: 'Source Code Pro', monospace; */
 }
 
+#calc-body {
+    border: 3px solid black;
+    width: fit-content;
+    background-color: rgba(7, 6, 87, 0.671);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 30px auto;
+}
 
+#display, .btn {
+    border: 2px solid black;
+    border-radius: 10px;
+}
 
 #display {
-    background-color: rgb(234, 238, 238);
+    background-color: rgb(162, 163, 161);
     width: 100%;
     height: 100px;
     display: flex;
     text-align: right;
     justify-content: end;
+    margin-bottom: 10px;
 }
 
 #display-num {
     padding: 20px;
     font-size: 50px;
+    color: black;
 }
 
 #display, #btn-container {
@@ -35,16 +56,22 @@ body {
 .btn {
     height: 80px;
     width: 80px;
-    border: 1px solid black;
-    background-color: rgb(142, 123, 99);
-
-}
-
+    background-color: rgba(169, 102, 185, 0.945);
+    color: black;
+    font-size: 30px;
+    font-weight: 600;
+    border: 2px solid black;
+    font-family: 'Caveat', cursive;
+    /* font-family: 'Source Code Pro', monospace; */
+} 
 .op {
-    background-color: blanchedalmond;
+    background-color: rgba(150, 50, 92, 0.952);
 }
 
 .double {
     width: 160px;
 }
 
+.btn:hover {
+    filter: brightness(80%);
+}
