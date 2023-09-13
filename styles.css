@@ -2,7 +2,7 @@
     --orange: rgb(194, 107, 57);
     --purple: rgb(168, 102, 185);
     --pink: rgb(190, 77, 124);
-    --width: 310px;
+    --width: 263px;
 }
 
 html {
@@ -34,17 +34,18 @@ html {
 #display {
     background-color: rgba(185, 183, 185, 0.945);
     width: 100%;
-    height: 100px;
+    height: 85px;
     display: flex;
     text-align: right;
     justify-content: end;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 8.5px;
+    box-shadow: 1px 3px 7px inset #383737d8;
 }
 
 #display-num {
-    padding: 20px;
-    font-size: 60px;
+    padding: 17px;
+    font-size: 55px;
     color: black;
 }
 
@@ -59,23 +60,24 @@ html {
 }
 
 .btn {
-    height: 75px;
-    width: 75px;
+    height: 63px;
+    width: 63px;
     background-color: var(--purple);
     color: black;
-    font-size: 35px;
-    font-weight: 600;
-    border: 2px solid black;
+    font-size: 31px;
+    font-weight: 700;
+    border: 3px solid rgb(0, 0, 0);
     font-family: 'Caveat', cursive;
     margin: 1px;
     transition: all .07s ease;
+    box-shadow: 1px 5px 10px #242323d8;
 } 
 .op {
     background-color: var(--pink);
 }
 
 .double  {
-    width: calc((var(--width) - 5px) / 2);
+    width: calc((var(--width) - 4px) / 2);
 }
 
 .colored {
@@ -85,7 +87,7 @@ html {
 .btn.huge {
     width: var(--width);
     background-color: var(--orange);
-    margin-top: 5px;
+    margin-top: 4px;
 }
 
 .btn:hover {
@@ -93,3 +95,37 @@ html {
     /* background-color: rgba(231, 163, 61, 0.945); */
     transform:translateY(-2px);
 }
+
+/* bars */
+
+#bars {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 14px;
+    width: 100px;
+    margin: -30px 0 0 -20px;
+    transform:scale(2) translateX(-50%);
+    /* border:solid 1px red; */
+  }
+  
+  .bar {
+    position: absolute;
+    bottom: 0px;
+    height: 3px;
+    width: 1px;
+    background: #000;      
+    animation: sound 0ms -800ms linear infinite alternate;
+    transform: translateY(50%);
+  }
+  
+  @keyframes sound {
+      0% {
+         opacity: .35;
+          height: 3px; 
+      }
+      100% {
+          opacity: 1;       
+          height: 28px;        
+      }
+  }

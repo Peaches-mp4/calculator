@@ -79,8 +79,8 @@ allButtons.forEach(button => button.addEventListener('click', playSound))
 
 function playSound() {
     audio = document.getElementById('click');
-    audio.currentTime = 0.4;
-    audio.volume = 0.2;
+    audio.currentTime = 0.43;
+    audio.volume = 0.3;
     audio.play();
 }
 
@@ -153,7 +153,6 @@ function clearFunction() {
     display.textContent = "";
 }
 
-//OPTIONAL
 // add keyboard support
 window.addEventListener('keydown', getNumber)
 
@@ -169,4 +168,17 @@ function getNumber(e) {
         button = document.querySelector(`button[data-key="Backspace"]`);
     }
     button.click();
+}
+
+//bars
+
+
+for(let i = 0; i < 90; i++){
+  
+    const left = (i * 2) + 1;
+    const anim = Math.floor(Math.random() * 75 + 400);
+    const height = Math.floor(Math.random() * 25 + 3);
+    console.log(height);
+    
+    document.querySelector('#bars').innerHTML += `<div class="bar" style="left:${left}px;animation-duration:${anim}ms;height:${height}px"></div>`;
 }
