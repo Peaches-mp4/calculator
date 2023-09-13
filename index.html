@@ -6,12 +6,20 @@
     <title>Lo-fi Calculator</title>
     <link rel="stylesheet" href="styles.css">
     <script src="javascript.js" defer></script>
-
+    <script src="https://kit.fontawesome.com/439d28b182.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Dancing+Script:wght@500&family=Source+Code+Pro:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="music-player">
+        <button class="btn" id="play">
+            <span><i class="fa-solid fa-play" style="color: #000000;"></i></span>
+        </button>
+        <button class="btn" id="pause">
+            <span><i class="fa-solid fa-pause" style="color: #000000;"></i></span>
+        </button>
+    </div>
     <div id="calc-body">
         <div id="display">
             <span id="display-num"></span>
@@ -38,10 +46,6 @@
     <audio src="/sounds/click 2.mp3" id="click"></audio> 
     <audio src="/sounds/tvari-tokyo-cafe-159065.mp3" id="soundtrack"></audio>
 
-    <!-- bars -->
-
-    <div id="bars"></div>
-
-    
+   
 </body>
 </html>

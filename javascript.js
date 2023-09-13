@@ -77,6 +77,9 @@ function displayNumbers(e) {
 const allButtons = Array.from(document.querySelectorAll('.btn'));
 allButtons.forEach(button => button.addEventListener('click', playSound))
 
+const playButton = document.getElementById('play');
+const pauseButton = document.getElementById('pause');
+
 function playSound() {
     audio = document.getElementById('click');
     audio.currentTime = 0.43;
@@ -84,14 +87,20 @@ function playSound() {
     audio.play();
 }
 
-window.addEventListener('load', playMusic);
+playButton.addEventListener('click', playMusic);
+pauseButton.addEventListener('click', pauseMusic);
 
 function playMusic() {
     audio = document.getElementById('soundtrack');
-    audio.currentTime = 0.0;
+    // audio.currentTime = 0.0;
     audio.volume = 0.10;
     audio.play();
     audio.loop = true;
+}
+
+function pauseMusic() {
+    audio = document.getElementById('soundtrack');
+    audio.pause();
 }
 
 //make the calc work
@@ -170,15 +179,3 @@ function getNumber(e) {
     button.click();
 }
 
-//bars
-
-
-for(let i = 0; i < 90; i++){
-  
-    const left = (i * 2) + 1;
-    const anim = Math.floor(Math.random() * 75 + 400);
-    const height = Math.floor(Math.random() * 25 + 3);
-    console.log(height);
-    
-    document.querySelector('#bars').innerHTML += `<div class="bar" style="left:${left}px;animation-duration:${anim}ms;height:${height}px"></div>`;
-}
