@@ -91,6 +91,7 @@ function playMusic() {
     audio.currentTime = 0.0;
     audio.volume = 0.10;
     audio.play();
+    audio.loop = true;
 }
 
 //make the calc work
@@ -153,6 +154,19 @@ function clearFunction() {
 }
 
 //OPTIONAL
-// add backspace button
 // add keyboard support
-// make it look nice
+window.addEventListener('keydown', getNumber)
+
+function getNumber(e) {
+    let button = document.querySelector(`button[data-key="${e.code}"]`);
+    if(e.code == 'Equal' && e.shiftKey) {
+       button = document.querySelector(`button[data-key="Plus"]`);
+    } else if(e.code == 'Digit8' && e.shiftKey) {
+        button = document.querySelector(`button[data-key="Multiplier"]`);
+    } else if(e.code == 'Slash') {
+        e.preventDefault();
+    } else if(e.code == 'Enter') {
+        button = document.querySelector(`button[data-key="Backspace"]`);
+    }
+    button.click();
+}
