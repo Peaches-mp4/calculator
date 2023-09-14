@@ -92,7 +92,7 @@ pauseButton.addEventListener('click', () => {
 function playSound() {
     audio = document.getElementById('click');
     audio.currentTime = 0.43;
-    audio.volume = 0.4;
+    audio.volume = 0.3;
     audio.play();
 }
 
