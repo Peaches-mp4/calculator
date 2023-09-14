@@ -19,13 +19,15 @@ html {
     border: 8px solid black;
     width: fit-content;
     background-color: rgba(36, 36, 36, 0.801);
+    box-shadow: 4px 4px 50px 8px rgba(255, 255, 255, 0.418);
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
     border-radius: 15px;
-    margin: 0px auto 30px auto;
+    margin: -85px auto 30px auto;
     z-index: 10;
+    transform: scale(0.9);
 }
 
 #display, .btn {
@@ -94,7 +96,6 @@ html {
 
 .btn:hover {
     filter: brightness(130%);
-    /* background-color: rgba(231, 163, 61, 0.945); */
     transform:translateY(-2px);
 }
 
@@ -110,9 +111,15 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 30px 0 20px 20px;
-    padding: 5px 15px;
+    margin: 25px 0 0px 20px;
+    padding: 5px 10px;
     z-index: 10;
+    transition: box-shadow 0.5s linear;
+}
+
+#music-player:hover {
+    box-shadow: 0px 4px 30px 7px rgba(255, 255, 255, 0.589);
+    transition: box-shadow 0.5s linear;
 }
 
 #play, #pause {
@@ -121,8 +128,12 @@ html {
     display: flex;
     justify-content: center;
 }
-/* sound wave */
 
+#play:hover, #pause:hover {
+    background-color: var(--pink);
+}
+
+/* sound wave */
 
 #bar-wrapper {
     position: fixed;
@@ -137,13 +148,11 @@ html {
 
 #bars {
     position: absolute;
-    /* height: 14px; */
+    /* visibility: hidden; */
+    opacity: 0;
     width: 180px;
     transform: scale(4);
-    /* background-image: linear-gradient(rgba(255, 255, 255, 0.164), rgba(194, 10, 231, 0.445)); */
-    /* box-shadow: 0px 4px 5px -2px rgba(194, 10, 231, 0.493); */
     box-shadow: 0px 4px 20px 7px rgba(255, 255, 255, 0.644);
-
 }
 
 .bar {
@@ -167,6 +176,15 @@ html {
     }
 }
 
-.invisible {
-    visibility: hidden;
+#bars.visible {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 2s, opacity 2s linear;
 }
+
+#bars.invisible {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 2s, opacity 2s linear;
+}
+

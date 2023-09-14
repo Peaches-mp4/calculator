@@ -98,7 +98,6 @@ function playSound() {
 
 function playMusic() {
     audio = document.getElementById('soundtrack');
-    // audio.currentTime = 0.0;
     audio.volume = 0.10;
     audio.play();
     audio.loop = true;
@@ -111,9 +110,11 @@ function pauseMusic() {
 
 function makeVisible() {
     bars.classList.remove('invisible');
+    bars.classList.add('visible');
 }
 
 function makeInvisible() {
+    bars.classList.remove('visible')
     bars.classList.add('invisible');
 }
 
