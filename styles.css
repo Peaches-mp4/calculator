@@ -15,6 +15,7 @@ html {
 }
 
 #calc-body {
+    position: relative;
     border: 8px solid black;
     width: fit-content;
     background-color: rgba(36, 36, 36, 0.801);
@@ -23,7 +24,8 @@ html {
     align-items: center;
     padding: 20px;
     border-radius: 15px;
-    margin: 30px auto;
+    margin: 0px auto 30px auto;
+    z-index: 10;
 }
 
 #display, .btn {
@@ -71,7 +73,7 @@ html {
     margin: 1px;
     transition: all .07s ease;
     box-shadow: 1px 5px 10px #242323d8;
-} 
+}
 .op {
     background-color: var(--pink);
 }
@@ -99,19 +101,72 @@ html {
 /* music player */
 
 #music-player {
+    position: relative;
     width: 100px;
     height: 50px;
-    border-radius: 20%;
+    border-radius: 15%;
     border: 8px solid black;
     background-color: rgba(36, 36, 36, 0.801);
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 30px 0 20px 20px;
+    padding: 5px 15px;
+    z-index: 10;
 }
 
 #play, #pause {
     height: 30px;
     font-size: 18px;
     display: flex;
-    justify-content: center;;
+    justify-content: center;
+}
+/* sound wave */
+
+
+#bar-wrapper {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+}
+
+#bars {
+    position: absolute;
+    /* height: 14px; */
+    width: 180px;
+    transform: scale(4);
+    /* background-image: linear-gradient(rgba(255, 255, 255, 0.164), rgba(194, 10, 231, 0.445)); */
+    /* box-shadow: 0px 4px 5px -2px rgba(194, 10, 231, 0.493); */
+    box-shadow: 0px 4px 20px 7px rgba(255, 255, 255, 0.644);
+
+}
+
+.bar {
+    position: absolute;
+    bottom: 0px;
+    height: 3px;
+    width: 1px;
+    background: #1f1e1e;
+    animation: sound 0ms -800ms linear infinite alternate;
+    transform: translateY(50%);
+}
+
+@keyframes sound {
+    0% {
+        opacity: .35;
+        height: 3px;
+    }
+    100% {
+        opacity: 1;
+        height: 28px;
+    }
+}
+
+.invisible {
+    visibility: hidden;
 }

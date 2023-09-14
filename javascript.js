@@ -76,19 +76,25 @@ function displayNumbers(e) {
 
 const allButtons = Array.from(document.querySelectorAll('.btn'));
 allButtons.forEach(button => button.addEventListener('click', playSound))
-
 const playButton = document.getElementById('play');
 const pauseButton = document.getElementById('pause');
+const bars = document.getElementById('bars');
+
+playButton.addEventListener('click', () => {
+    playMusic();
+    makeVisible();
+});
+pauseButton.addEventListener('click', () => {
+    pauseMusic();
+    makeInvisible();
+});
 
 function playSound() {
     audio = document.getElementById('click');
     audio.currentTime = 0.43;
-    audio.volume = 0.3;
+    audio.volume = 0.4;
     audio.play();
 }
-
-playButton.addEventListener('click', playMusic);
-pauseButton.addEventListener('click', pauseMusic);
 
 function playMusic() {
     audio = document.getElementById('soundtrack');
@@ -101,6 +107,14 @@ function playMusic() {
 function pauseMusic() {
     audio = document.getElementById('soundtrack');
     audio.pause();
+}
+
+function makeVisible() {
+    bars.classList.remove('invisible');
+}
+
+function makeInvisible() {
+    bars.classList.add('invisible');
 }
 
 //make the calc work
@@ -179,3 +193,17 @@ function getNumber(e) {
     button.click();
 }
 
+// sound waves
+
+
+for(let i = 0; i < 90; i++){
+  
+    const left = (i * 2) + 1;
+    const anim = Math.floor(Math.random() * 75 + 400);
+    const height = Math.floor(Math.random() * 25 + 3);
+    console.log(height);
+    
+    document.querySelector('#bars').innerHTML += `<div class="bar" style="left:${left}px;animation-duration:${anim}ms;height:${height}px"></div>`;
+  }
+  
+  
